@@ -3,24 +3,27 @@
     class view
     {
 
-        private $content = null;
+        private static $content = null;
 
+        /**
+         * Render content of a view based on a file
+         * @param string $file Path to the view to render
+         */
         public static function load($file)
         {
             try
             {
-                $path = '../View' . strtolower($file);
-                if (file_exists($path))
-                    self::$content = $path;
+                if (file_exists($file))
+                    self::$content = $file;
                 else
-                    self::$content = '../View/Errors/404.php';
+                    self::$content = 'Errors/404.php';
             }
             catch (Exception $ex)
             {
-                self::$content = '../View/Errors/404.php';
+                self::$content = 'Errors/404.php';
             }
 
-            include(self::$content);
+            require self::$content;
         }
 
     }

@@ -34,12 +34,12 @@ $(function () {
 
     //#endregion
 
-    $('button#donorButton').click(function () {
-        document.location.replace('user_login.html');
+    $('button#suscribeButton').click(function () {
+        document.location.replace('index.php?p=register');
     });
 
-    $('button#seekerButton').click(function () {
-        document.location.replace('user_login.html');
+    $('button#loginButton').click(function () {
+        document.location.replace('index.php?p=login');
     });
 
     $('section.main', 'div.shadow').click(function () {
