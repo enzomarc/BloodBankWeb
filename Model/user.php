@@ -4,7 +4,7 @@
 
     require ROOT . '/Model/database.php';
 
-    class user
+    class User
     {
 
         private $username;
@@ -25,24 +25,24 @@
 
         /* Getters & Setters */
 
-        public function getUsername()
+        public function GetUsername()
         {
             return $this->username;
         }
 
-        public function setUsername($value)
+        public function SetUsername($value)
         {
             $this->username = $value;
         }
 
-        public function getValue($prop)
+        public function GetValue($prop)
         {
             if (isset($this->$prop))
                 return $this->$prop;
             return null;
         }
 
-        public function setValue($prop, $value)
+        public function SetValue($prop, $value)
         {
             if (isset($this->$prop))
                 $this->$prop = $value;
@@ -68,7 +68,35 @@
                 if ($request->execute())
                     return true;
             }
+            
             return false;
+        }
+
+        /**
+         * Create new user with informations based on the phone number
+         * @param string $phone Phone number of the user to get
+         * @return User
+         */
+        public static function GetByPhone($phone)
+        {
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM users WHERE phone = :phone');
+            $request->bindParam(':phone', $phone);
+            $request->execute();
+            $results = $request->fetchAll();
+
+            if (count($results) > 0)
+            {
+                foreach ($results as $result)
+                {
+                    $tempUser = new User($result['name'], $result['phone'], $result['bloodgroup'], $result['password']);
+                    $tempUser->birthdate = $result['birthdate'];
+                    $tempUser->gender = $result['gender'];
+                    $tempUser->city = $result['city'];
+                }
+                return $tempUser;
+            }
+
+            return null;
         }
 
         /* Helpers */
@@ -82,8 +110,8 @@
             $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM users WHERE phone = :phone');
             $request->bindParam(':phone', $this->phone);
             $request->execute();
-            $count = $request->fetchColumn();
-            return $count > 0;
+            $results = $request->fetchAll();
+            return count($results) > 0;
         }
 
         /**
@@ -98,8 +126,8 @@
             $request->bindParam(':phone', $phone);
             $request->bindParam(':pwd', $password);
             $request->execute();
-            $count = $request->fetchColumn();
-            return $count > 0;
+            $results = $request->fetchAll();
+            return count($results) > 0;
         }
 
     }

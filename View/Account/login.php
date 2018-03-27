@@ -35,7 +35,7 @@
             
             <div class="login-box">
                                 
-                <form class="login-form" id="login-form" method="post" action="../../Controller/User/login.php">
+                <form class="login-form" id="login-form" method="post" action="Controller/User/login.php">
                     <label id="name-label" for="username" style="display:none">NAME</label><br>
                     <input type="text" id="username" name="username" style="display:none"><br>
                     <label id="group-label" for="bloodgroup" style="display:none">BLOOD GROUP</label><br>

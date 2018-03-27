@@ -1,5 +1,8 @@
 <?php
 
+    /**
+     * User authentification and Session Manager
+     */
     class Auth
     {
         
@@ -9,7 +12,6 @@
          */
         public static function Connected()
         {
-            session_start();
             return isset($_SESSION['connected']);
         }
 
@@ -36,6 +38,16 @@
                 session_unset();
                 session_destroy();
             }
+        }
+
+        /**
+         * Get the phone of the connected user
+         */
+        public static function GetPhone()
+        {
+            if (self::Connected())
+                return $_SESSION['phone'];
+            return null;
         }
 
     }
