@@ -12,17 +12,19 @@
          */
         public static function Connected()
         {
+            if (!self::SessionStarted()) session_start();
             return isset($_SESSION['connected']);
         }
 
         /**
-         * Connect user by creating a new session
+         * Create new session for the current user
          * @param string $username Username of the user to connect
          * @param string $phone Phone number of the user to connect
          */
         public static function Create($username, $phone)
         {
             session_start();
+            session_regenerate_id(true);
             $_SESSION['username'] = $username;
             $_SESSION['phone'] = $phone;
             $_SESSION['connected'] = true;
@@ -41,12 +43,33 @@
         }
 
         /**
+         * Determine if the session was started
+         * @return bool
+         */
+        private static function SessionStarted()
+        {
+            return session_id() != null;
+        }
+
+        /**
          * Get the phone of the connected user
+         * @return string
          */
         public static function GetPhone()
         {
             if (self::Connected())
                 return $_SESSION['phone'];
+            return null;
+        }
+
+        /**
+         * Get the username of the connected user
+         * @return string
+         */
+        public static function GetUsername()
+        {
+            if (self::Connected())
+                return $_SESSION['username'];
             return null;
         }
 

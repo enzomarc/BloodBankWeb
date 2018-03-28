@@ -1,7 +1,8 @@
 <?php
 
     define('ROOT', dirname(__DIR__));
-    include_once ROOT . '/BloodBankWeb/View/view.php';
+    include_once 'View/view.php';
+    include_once 'Controller/auth.php';
 
     if (isset($_GET['p']))
         $p = $_GET['p'];
@@ -11,12 +12,20 @@
     ob_start();
 
     if ($p === 'home')
-        view::load(ROOT . '/BloodBankWeb/View/Home/home.php');
+        view::load('View/Home/home.php');
     else if ($p === 'donation')
-        view::load(ROOT . '/BloodBankWeb/View/Donation/donation.php');
+        view::load('View/Donation/donation.php');
     else if ($p === 'login' || $p === 'register')
-        view::load(ROOT . '/BloodBankWeb/View/Account/login.php');
+    {
+        if (Auth::Connected())
+            view::load('View/Account/dashboard.php');
+        else
+            view::load('View/Account/login.php');
+    }
     else if ($p === 'dashboard')
-        view::load(ROOT . '/BloodBankWeb/View/Account/dashboard.php');
+        if (Auth::Connected())
+            view::load('View/Account/dashboard.php');
+        else
+            view::load('View/Account/login.php');
     else
-        view::load(ROOT . 'BloodBankWeb/View/' . $p . '.php');
+        view::load('View/' . $p . '.php');

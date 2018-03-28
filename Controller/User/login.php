@@ -9,7 +9,7 @@
         {
             $username = User::GetByPhone($_POST['phone'])->GetUsername();
             Auth::Create($username, $_POST['phone']);
-            var_dump(Auth::GetPhone());
+            header('location: ../../index.php?p=dashboard');
         }
         else
         {
