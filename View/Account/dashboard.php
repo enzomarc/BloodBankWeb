@@ -23,7 +23,7 @@
         <span><?= Auth::GetUsername(); ?></span>
         <div class="separator"></div>
         <a href="#">Edit Profile</a>
-        <a href="deconnect.php">Log Out</a>
+        <a href="Controller/User/logout.php">Log Out</a>
     </div>
     
     <div class="shadow"></div>
