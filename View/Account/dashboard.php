@@ -1,3 +1,7 @@
+<?php
+    require(defined('ROOT') ? ROOT . '/BloodBankWeb/Controller/access.php' : '../../Controller/access.php');     
+?>
+
 <html lang="en">
 
 <head>
@@ -64,8 +68,6 @@
             </div>
         </div>
 
-        
-        
     </section>
 
     <footer>

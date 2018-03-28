@@ -1,3 +1,8 @@
+<?php
+    $loc = defined('ROOT') ? ROOT . '/BloodBankWeb/Controller/access.php?page=login' : '../../Controller/access.php?page=login';
+    header('location:' . $loc);     
+?>
+
 <html lang="en">
 
     <head>
@@ -35,9 +40,9 @@
             
             <div class="login-box">
                                 
-                <form class="login-form" id="login-form" method="post" action="Controller/User/login.php">
+                <form class="login-form" id="login-form" method="POST" action="Controller/User/login.php">
                     <label id="name-label" for="username" style="display:none">NAME</label><br>
-                    <input type="text" id="username" name="username" style="display:none"><br>
+                    <input type="text" id="username" name="nameuser" style="display:none"><br>
                     <label id="group-label" for="bloodgroup" style="display:none">BLOOD GROUP</label><br>
                     <select name="bloodgroup" id="bloodgroup" style="display:none">
                         <option value="">Choose blood group ...</option>
@@ -58,8 +63,6 @@
                     <a href="#" class="recover-password">I forgot my password</a>
                 </form>
                 
-                <h5>Sasassa</h5>
-
             </div>
             
         </section>

@@ -35,18 +35,64 @@
             $this->username = $value;
         }
 
-        public function GetValue($prop)
+        public function GetPhone()
         {
-            if (isset($this->$prop))
-                return $this->$prop;
-            return null;
+            return $this->phone;
         }
 
-        public function SetValue($prop, $value)
+        public function SetPhone($value)
         {
-            if (isset($this->$prop))
-                $this->$prop = $value;
-            return null;
+            $this->phone = $value;
+        }
+
+        public function GetPassword()
+        {
+            return $this->password;
+        }
+
+        public function SetPassword($value)
+        {
+            $this->password = $value;
+        }
+
+        public function GetBloodGroup()
+        {
+            return $this->bloodgroup;
+        }
+
+        public function SetBloodGroup($value)
+        {
+            $this->bloodgroup = $value;
+        }
+
+        public function GetBirthdate()
+        {
+            return $this->birthdate;
+        }
+
+        public function SetBirthdate($value)
+        {
+            $this->birthdate = $value;
+        }
+
+        public function GetGender()
+        {
+            return $this->gender;
+        }
+
+        public function SetGender($value)
+        {
+            $this->gender = $value;
+        }
+
+        public function GetCity()
+        {
+            return $this->city;
+        }
+
+        public function SetCity($value)
+        {
+            $this->city = $value;
         }
 
         /* CRUD Operations */

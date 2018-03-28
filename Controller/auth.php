@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * User authentification and Session Manager
+     * User authentification and session manager
      */
     class Auth
     {

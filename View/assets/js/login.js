@@ -52,17 +52,8 @@ $(document).ready(function () {
                 if ($("#bloodgroup").val() !== "") {
                     if ($("#user-phone").val().length > 8 && $.isNumeric($("#user-phone").val()) === true && $("#user-phone").val()[0] === '6') {
                         if ($("#user-password").val().length > 7) {
-                            $.ajax({
-                                url: "Controller/User/register.php",
-                                method: "POST",
-                                data: "nameuser=" + $("#username").val() + "&bloodgroup=" + $("#bloodgroup").val() + "&phoneuser=" + $("#user-phone").val() + "&password=" + $("#user-password").val(),
-                                success: function (data) {
-                                    if (!data.startsWith('Error'))
-                                        window.location.replace('index.php?p=dashboard');
-                                    else
-                                        alert(data);
-                                }
-                            });
+                            $('#login-form').attr('action', 'Controller/User/register.php');                            
+                            $("#login-form").submit();
                         } else {
                             $("#user-password").focus();
                         }
@@ -79,6 +70,7 @@ $(document).ready(function () {
 
             if ($("#user-phone").val().length > 8 && $.isNumeric($("#user-phone").val()) === true && $("#user-phone").val()[0] === '6') {
                 if ($("#user-password").val().length > 7) {
+                    $('#login-form').attr('action', 'Controller/User/login.php');
                     $("#login-form").submit();
                 } else {
                     $("#user-password").focus();

@@ -1,14 +1,15 @@
 <?php
 
     require '../../Model/user.php';
+    require '../../Helpers/CryptoHelper.php';
 
-    if (isset($_POST['nameuser']) and isset($_POST['password']) and isset($_POST['bloodgroup']) and isset($_POST['nameuser']))
+    if (isset($_POST['nameuser']) and isset($_POST['password']) and isset($_POST['bloodgroup']) and isset($_POST['phone']))
     {
-        $user = new user($_POST['nameuser'], $_POST['phoneuser'], $_POST['password'], $_POST['bloodgroup']);
+        $user = new user($_POST['nameuser'], $_POST['phone'], Hash::Encrypt($_POST['password']), $_POST['bloodgroup']);
         if ($user->createUser())
-        {
-            echo ROOT . '/index.php?p=dashboard';
-        }
+            header('location: login.php?phone=' . $user->GetPhone() . '&password=' . $_POST['password']);
         else
-            echo 'Error occurred. User with same informations probably exists.';
+            die('Error occurred. User with same informations probably exists.');
     }
+    else
+        die('Missing some informations : ' . $_POST['nameuser']);
