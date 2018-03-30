@@ -12,11 +12,10 @@
          * @param string $dbpassword Password associated to the username connecting to the server
          * @param string $server Server address
          */
-        public static function GetDB($dbname = 'bloodbankdb', $dbuser = 'root', $dbpassword = '', $server = 'localhost')
+        public function GetDB($dbname = 'bloodbankdb', $dbuser = 'root', $dbpassword = '', $server = 'localhost')
         {
             if (!isset(self::$db))
                 $db = new PDO('mysql:host=' . $server . '; dbname=' . $dbname . '; charset=utf8', $dbuser, $dbpassword);
             return $db;
         }
-
     }

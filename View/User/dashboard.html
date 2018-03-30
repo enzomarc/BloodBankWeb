@@ -1,0 +1,153 @@
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Blood Bank - Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/dashboard-styles.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/skeleton.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/_nucleo-outline.scss">
+
+        <script src="View/assets/js/jquery-3.2.1.js"></script>
+        <script src="View/assets/js/main.js"></script>
+    </head>
+    
+    <body>
+        
+        <div class="content">
+            
+            <div class="row">
+                
+                <div class="three columns" id="menu-container">
+                    
+                    <div class="header">
+                       
+                        <h5>Electronic Blood Bank</h5>
+                        <hr>
+                        
+                        <img id="avatar" src="../assets/images/pp/JimmieButler.jpg" alt="avatar">
+                        <h6>John Doe</h6>
+                        
+                        <div class="menu-items">
+                            <div class="container">
+                                <div class="row"><a class="button button-primary u-full-width" href=""><i class="now-ui-icons business_chart-bar-32">&nbsp;&nbsp;</i>Dashboard</a></div>
+                                <div class="row"><a class="button u-full-width" href=""><i class="now-ui-icons users_single-02">&nbsp;&nbsp;</i>User Profile</a></div>
+                                <div class="row"><a class="button u-full-width" href=""><i class="now-ui-icons business_bulb-63">&nbsp;&nbsp;</i>Notifications</a></div>
+                                <div class="row"><a class="button u-full-width" href=""><i class="now-ui-icons files_paper">&nbsp;&nbsp;</i>Test Results</a></div>
+                                <div class="row"><a class="button u-full-width" href=""><i class="now-ui-icons travel_info">&nbsp;&nbsp;</i>Help</a></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="eight columns" id="main-container">
+                    
+                    <div class="container">
+                    
+                        <div class="row" id="dash-header">
+                            <div class="u-full-width">
+                                <span>
+                                    <div class="content">
+                                        <h4>Dashboard</h4>
+                                        <div id="notif-zone">
+                                            <a href=""><i class="now-ui-icons ui-1_email-85" id="notif-msg"></i></a>
+                                        </div>
+                                    </div><hr>
+                                </span>
+                            </div>
+                            <div class="seven columns"></div>
+                        </div>
+
+                        <div class="row">
+
+                           <div class="four columns">
+                               <div class="dashboard-item" id="item1">
+                                   <div class="row">
+                                    <img src="../assets/images/dash_icons/donation.png" alt="kalel">
+                                    </div>
+                                    <div class="row">
+                                    <h5 class="item-title">Donations</h5>
+                                    </div>
+                                </div>
+                           </div>
+
+                           <div class="four columns">
+                               <div class="dashboard-item" id="item2">
+                                    <img src="../assets/images/dash_icons/request.png" alt="kalel">
+                                    <h5 class="item-title">Requests</h5>
+                                </div>
+                           </div>
+
+                           <div class="four columns">
+                               <div class="dashboard-item" id="item3">
+                                    <img src="../assets/images/dash_icons/info.png" alt="kalel">
+                                    <h5 class="item-title">Informations</h5>
+                                </div>
+                           </div>
+
+                        </div>
+
+                        <div class="row" id="request-row">
+
+                            <h5>Hospitals requests</h5>
+                            <hr>
+                            <table class="u-full-width">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Hospital</th>
+                                        <th>Blood Group</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Dave Gamache</td>
+                                        <td>26</td>
+                                        <td>Male</td>
+                                        <td><a class="button" href="">Donate</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dwayne Johnson</td>
+                                        <td>42</td>
+                                        <td>Male</td>
+                                        <td><a class="button" href="">Donate</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dwayne Johnson</td>
+                                        <td>42</td>
+                                        <td>Male</td>
+                                        <td><a class="button" href="">Donate</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dwayne Johnson</td>
+                                        <td>42</td>
+                                        <td>Male</td>
+                                        <td><a class="button" href="">Donate</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dwayne Johnson</td>
+                                        <td>42</td>
+                                        <td>Male</td>
+                                        <td><a class="button" href="">Donate</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+    
+</html>

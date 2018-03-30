@@ -5,27 +5,25 @@
     include_once 'Controller/auth.php';
 
     if (isset($_GET['p']))
-        $p = $_GET['p'];
+        $page = $_GET['p'];
     else
-        $p = 'home';
+        $page = 'home';
 
-    ob_start();
-
-    if ($p === 'home')
+    if ($page === 'home')
         view::load('View/Home/home.php');
-    else if ($p === 'donation')
+    else if ($page === 'donation')
         view::load('View/Donation/donation.php');
-    else if ($p === 'login' || $p === 'register')
+    else if ($page === 'login' || $page === 'register')
     {
         if (Auth::Connected())
-            view::load('View/Account/dashboard.php');
+            view::load('View/User/dashboard.html');
         else
-            view::load('View/Account/login.php');
+            view::load('View/User/login.php');
     }
-    else if ($p === 'dashboard')
+    else if ($page === 'dashboard')
         if (Auth::Connected())
-            view::load('View/Account/dashboard.php');
+            view::load('View/User/dashboard.html');
         else
-            view::load('View/Account/login.php');
+            view::load('View/User/login.php');
     else
-        view::load('View/' . $p . '.php');
+        view::load('View/' . $page . '.php');

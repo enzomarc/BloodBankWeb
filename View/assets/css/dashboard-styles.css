@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+* {
+    font-family: 'Roboto Condensed', 'Segoe UI', sans-serif;
+}
+
+div.content
+{
+    height: auto;
+}
+
+div#menu-container
+{    
+    text-align: center;
+    min-height: 100%;
+    max-height: 100%;
+    background: #BD003E;
+    box-shadow: 2px 0px 20px #444;
+}
+
+div#menu-container h5
+{
+    font-family: 'Roboto';
+    font-size: 20px;
+    margin: 0;
+    color: white;
+    padding: 10% 0 3% 0;
+}
+
+div#menu-container hr
+{
+    width: 80%;
+    border-color: #8E002A;
+}
+
+div#menu-container img
+{
+    border-radius: 500px;
+    height: 100px;
+    width: 100px;
+}
+
+div#menu-container h6
+{
+    font-family: 'Roboto';
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+/* Menu Items */
+
+div.menu-items a
+{
+    text-align: left;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s;
+}
+
+i
+{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+div.menu-items a:hover
+{
+    color: white;
+    background-color: #B0003E;
+    transition: all 0.3s;
+}
+
+div#main-container
+{
+    padding-top: 3%;
+}
+
+div#dash-header
+{
+    margin-top: 5%;
+}
+
+div#dash-header div.content
+{
+    display: flex;
+}
+
+div#notif-zone
+{
+    width: 100%;
+    text-align: right;
+}
+
+i#notif-msg
+{
+    font-size: 25px;
+    color: #000;
+    transition: all 0.3s;
+}
+
+i#notif-msg:hover
+{
+    color: #BD003E;
+    transition: all 0.3s;
+}
+
+div.dashboard-item
+{
+    color: white;
+    cursor:  pointer;
+    height: 12%;
+    padding: 4% 4% 4% 6%;
+    border-radius: 3px;
+    margin-bottom: 5%;
+    box-shadow: -1px 1px 5px #999;
+}
+
+div.dashboard-item#item1
+{
+    background: linear-gradient(to top right, #81003E, #BD003E);
+}
+
+div.dashboard-item#item2
+{
+    background: linear-gradient(to top right, #008E2A, #4AC764);
+}
+
+div.dashboard-item#item3
+{
+    background: linear-gradient(to top right, #0067C1, #008EFF);
+}
+
+div.dashboard-item img
+{
+    height: 32px;
+    width: 32px;
+    margin-bottom: 10px;
+}
+
+div.dashboard-item h5
+{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'Roboto Medium';
+}
+
+
+div#request-row
+{
+    margin-top: 10%;
+}
