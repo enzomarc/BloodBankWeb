@@ -1,11 +1,11 @@
 <?php
 
-    require '../auth.php';
+    require dirname(__DIR__) . '/auth.php';
 
     try
     {
         Auth::Close();
-        header('location: ../../index.php');
+        header('location: ' . dirname(__DIR__) . '/index.php');
     }
     catch (Exception $ex)
     {

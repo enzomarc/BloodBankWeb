@@ -1,0 +1,74 @@
+/* Profile Edit Stylesheets */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+*, a, input[type='text'], input[type='tel'], input[type='date'], select {
+    font-family: 'Roboto Condensed', 'Segoe UI', sans-serif;
+}
+
+div.container div#header
+{
+    margin-top: 5%;
+}
+
+div.container div#pic-section img
+{
+    border-radius: 100px;
+}
+
+div.container div#pic-section a
+{
+    margin-top: 2%;
+}
+
+div.container div.section-header
+{
+    margin-top: 3%;
+}
+
+input[type='date']
+{
+    height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+div.container div.bottom-section p
+{
+    flex: 1;
+    text-align: left;
+    color: #999;
+}
+
+div.container div.bottom-section div.button-div
+{
+    flex: 1;
+}
+
+div.container div.bottom-section a
+{
+    text-align: right;
+    background-color: #fff;
+    color: #111;
+    transition: all 0.3s;
+}
+
+div.container div.bottom-section div.content
+{
+    width: 100%;
+    margin: 3% 0;
+    display: flex;
+}
+
+div.container div.bottom-section a:hover
+{
+    background-color: #009063;
+    color: #fff;
+    transition: all 0.3s;
+}

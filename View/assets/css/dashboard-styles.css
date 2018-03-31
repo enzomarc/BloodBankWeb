@@ -7,6 +7,11 @@
     font-family: 'Roboto Condensed', 'Segoe UI', sans-serif;
 }
 
+body
+{
+    overflow-x: hidden;
+}
+
 div.content
 {
     height: auto;
@@ -15,8 +20,8 @@ div.content
 div#menu-container
 {    
     text-align: center;
-    height: 100%;
-    max-height: 100%;
+    min-height: 100%;
+    height: auto;
     background: #BD003E;
     box-shadow: 2px 0px 20px #444;
 }
@@ -86,9 +91,28 @@ div#dash-header
     margin-top: 5%;
 }
 
-div#dash-header div.content
+div#dash-header div.content, div#search-section
 {
     display: flex;
+}
+
+div#search-section h5
+{
+    flex: 1;
+}
+
+div#search-section div.search-box
+{
+    flex: 1;
+    width: 100%;
+    text-align: right;
+}
+
+div#search-section div.search-box input[type='text']
+{
+    
+    font-family: 'Roboto Condensed';
+    font-size: 13px;
 }
 
 div#notif-zone

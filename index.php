@@ -16,14 +16,19 @@
     else if ($page === 'login' || $page === 'register')
     {
         if (Auth::Connected())
-            view::load('View/User/dashboard.html');
+            view::load('View/User/Dashboard/index.php');
         else
             view::load('View/User/login.php');
     }
     else if ($page === 'dashboard')
         if (Auth::Connected())
-            view::load('View/User/dashboard.html');
+            view::load('View/User/Dashboard/index.php');
         else
             view::load('View/User/login.php');
+    else if ($page === 'logout')
+        if (Auth::Connected())
+            view::load('Controller/User/logout.php');
+        else
+            view::load('View/Home/home.php');
     else
         view::load('View/' . $page . '.php');

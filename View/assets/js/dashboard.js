@@ -22,7 +22,8 @@ $(function () {
         if ($width < 768)
         {
             $('#menu-container').css('position', 'static')
-            $('#main-container').css('width', 'auto')
+            $('#main-container').css('width', '100%')
+            $('#main-container').css('float', 'none')
         }
         else
         {
