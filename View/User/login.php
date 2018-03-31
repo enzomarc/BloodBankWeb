@@ -1,8 +1,3 @@
-<?php
-    $loc = defined('ROOT') ? ROOT . '/BloodBankWeb/Controller/access.php?page=login' : '../../Controller/access.php?page=login';
-    header('location:' . $loc);     
-?>
-
 <html lang="en">
 
     <head>

@@ -4862,7 +4862,7 @@ if (Vel) {
       var label = $select.find('option:selected').html() || $select.find('option:first').html() || "";
 
       // Function that renders and appends the option taking into
-      // account type and possible image icon.
+      // User type and possible image icon.
       var appendOptionWithIcon = function (select, option, type) {
         // Add disabled attr if disabled
         var disabledClass = option.is(':disabled') ? 'disabled ' : '';
@@ -9622,7 +9622,7 @@ if (Vel) {
         function cycleTo(n) {
           var diff = center % count - n;
 
-          // Account for wraparound.
+          // User for wraparound.
           if (!noWrap) {
             if (diff < 0) {
               if (Math.abs(diff + count) < Math.abs(diff)) {

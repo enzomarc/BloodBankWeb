@@ -18,14 +18,14 @@
     else if ($p === 'login' || $p === 'register')
     {
         if (Auth::Connected())
-            view::load('View/Account/dashboard.php');
+            view::load('View/User/dashboard.php');
         else
-            view::load('View/Account/login.php');
+            view::load('View/User/login.php');
     }
     else if ($p === 'dashboard')
         if (Auth::Connected())
-            view::load('View/Account/dashboard.php');
+            view::load('View/User/dashboard.php');
         else
-            view::load('View/Account/login.php');
+            view::load('View/User/login.php');
     else
         view::load('View/' . $p . '.php');
