@@ -12,4 +12,4 @@
             die('Error occurred. User with same informations probably exists.');
     }
     else
-        die('Missing some informations : ' . $_POST['nameuser']);
+        die('Missing some informations');

@@ -17,6 +17,11 @@ div.content
     height: auto;
 }
 
+table a 
+{
+    text-decoration: none;
+}
+
 div#menu-container
 {    
     text-align: center;
@@ -46,6 +51,8 @@ div#menu-container img
     border-radius: 500px;
     height: 100px;
     width: 100px;
+    border: solid 2px #fff;
+    padding: 5px;
 }
 
 div#menu-container h6
@@ -104,7 +111,6 @@ div#search-section h5
 div#search-section div.search-box
 {
     flex: 1;
-    width: 100%;
     text-align: right;
 }
 

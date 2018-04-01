@@ -27,7 +27,7 @@
 
         <div class="row">
             <div class="six columns">
-                <input class="u-full-width" type="date" placeholder="What's your date of birth ?">
+                <input class="u-full-width" type="date" max=datetime placeholder="What's your date of birth ?">
             </div>
             <div class="six columns">
                 <select class="u-full-width" id="genre">
@@ -41,10 +41,15 @@
         <div class="row">
             <div class="six columns">
                 <select class="u-full-width" id="country">
-                    <option value="">Country</option>
-                    <option value="Option 2">Cameroon</option>
-                    <option value="Option 3">Nigeria</option>
-                    <option value="Option 3">Kenya</option>
+                    <option value="">Blood Group</option>
+                    <option value="ap">Group A+</option>
+                    <option value="am">Group A-</option>
+                    <option value="bp">Group B+</option>
+                    <option value="bm">Group B-</option>
+                    <option value="abp">Group AB+</option>
+                    <option value="abm">Group AB-</option>
+                    <option value="op">Group O+</option>
+                    <option value="om">Group O-</option>
                 </select>
             </div>
             <div class="six columns">

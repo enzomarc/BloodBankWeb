@@ -5,6 +5,8 @@ $(function () {
     if ($(window).width() < 768)
     {
         $('#menu-container').css('position', 'static')
+        $('#menu-container').children().css('text-align', 'center')
+        $('#menu-container').children().css('width', $(window).width())
     }
     else
     {
@@ -14,14 +16,13 @@ $(function () {
     }
     
     $(window).resize(function() {
-        
-        console.log($(window).width())
-        
+                
         $width = $(window).width()
         
         if ($width < 768)
         {
             $('#menu-container').css('position', 'static')
+            $('#menu-container').children().css('text-align', 'center')
             $('#main-container').css('width', '100%')
             $('#main-container').css('float', 'none')
         }

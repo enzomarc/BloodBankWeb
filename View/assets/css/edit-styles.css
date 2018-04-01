@@ -14,6 +14,11 @@ div.container div#header
     margin-top: 5%;
 }
 
+div.container div#pic-section
+{
+    text-align: center;
+}
+
 div.container div#pic-section img
 {
     border-radius: 100px;

@@ -1,8 +1,6 @@
 <?php
 
-    define('ROOT', dirname(__DIR__));
-
-    require ROOT . '/Model/database.php';
+    require dirname(__DIR__) . '/Model/database.php';
 
     class User
     {
