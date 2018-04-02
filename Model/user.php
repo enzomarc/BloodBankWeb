@@ -132,7 +132,7 @@
             {
                 foreach ($results as $result)
                 {
-                    $tempUser = new User($result['name'], $result['phone'], $result['bloodgroup'], $result['password']);
+                    $tempUser = new User($result['name'], $result['phone'], $result['password'], $result['bloodgroup']);
                     $tempUser->birthdate = $result['birthdate'];
                     $tempUser->gender = $result['gender'];
                     $tempUser->city = $result['city'];

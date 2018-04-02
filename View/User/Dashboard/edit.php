@@ -1,3 +1,7 @@
+<?php
+    require_once 'Controller/User/dashboard.php';
+?>
+
 <div class="container">
 
     <div class="row" id="header">
@@ -22,47 +26,47 @@
 
     <div class="row">
 
-        <input class="u-full-width" type="text" placeholder="What's your name ? *">
-        <input class="u-full-width" type="tel" maxlength = 9 placeholder="What's your phone number ? *">
+        <input class="u-full-width" type="text" placeholder="What's your name ? *" value="<?= $username; ?>">
+        <input class="u-full-width" type="tel" maxlength = 9 placeholder="What's your phone number ? *" value="<?= $phone; ?>">
 
         <div class="row">
             <div class="six columns">
-                <input class="u-full-width" type="date" max=datetime placeholder="What's your date of birth ?">
+                <input class="u-full-width" type="date" max=datetime placeholder="What's your date of birth ?" value="<?= $birthdate; ?>">
             </div>
             <div class="six columns">
-                <select class="u-full-width" id="genre">
-                    <option value="">Choose a genre</option>
-                    <option value="Option 2">Man</option>
-                    <option value="Option 3">Woman</option>
-                    <option value="Option 3">Another</option>
+                <select class="u-full-width" id="gender" value="<?= $gender; ?>">
+                    <option id="empty" value="">Choose a genre</option>
+                    <option id="man" value="man">Man</option>
+                    <option id="woman" value="woman">Woman</option>
+                    <option id="other" value="other">Other</option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="six columns">
-                <select class="u-full-width" id="country">
-                    <option value="">Blood Group</option>
-                    <option value="ap">Group A+</option>
-                    <option value="am">Group A-</option>
-                    <option value="bp">Group B+</option>
-                    <option value="bm">Group B-</option>
-                    <option value="abp">Group AB+</option>
-                    <option value="abm">Group AB-</option>
-                    <option value="op">Group O+</option>
-                    <option value="om">Group O-</option>
+                <select class="u-full-width" id="bloodgroup" value="<?= $bloodgroup; ?>">
+                    <option id="empty" value="">Blood Group</option>
+                    <option id="ap" value="ap">Group A+</option>
+                    <option id="am" value="am">Group A-</option>
+                    <option id="bp" value="bp">Group B+</option>
+                    <option id="bm" value="bm">Group B-</option>
+                    <option id="abp" value="abp">Group AB+</option>
+                    <option id="abm" value="abm">Group AB-</option>
+                    <option id="op" value="op">Group O+</option>
+                    <option id="om" value="om">Group O-</option>
                 </select>
             </div>
             <div class="six columns">
-                <select class="u-full-width" id="city">
-                    <option value="">City</option>
-                    <option value="Option 2">Yaoundé</option>
-                    <option value="Option 3">Douala</option>
-                    <option value="Option 3">Bafoussam</option>
-                    <option value="Option 3">Maroua</option>
-                    <option value="Option 3">Ngaoundéré</option>
-                    <option value="Option 3">Garoua</option>
-                    <option value="Option 3">Buea</option>
-                    <option value="Option 3">Bamenda</option>
+                <select class="u-full-width" id="city" value="<?= $city; ?>">
+                    <option id="empty" value="">City</option>
+                    <option id="yaounde" value="yaounde">Yaoundé</option>
+                    <option id="douala" value="douala">Douala</option>
+                    <option id="bafoussam" value="bafoussam">Bafoussam</option>
+                    <option id="maroua" value="maroua">Maroua</option>
+                    <option id="ngaoundere" value="ngaoundere">Ngaoundéré</option>
+                    <option id="garoua" value="garoua">Garoua</option>
+                    <option id="buea" value="buea">Buea</option>
+                    <option id="bamenda" value="bamenda">Bamenda</option>
                 </select>
             </div>
         </div>

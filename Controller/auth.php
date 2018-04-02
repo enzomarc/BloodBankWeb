@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * User authentification and session manager
+     * User authentication and session manager
      */
     if (!class_exists('Auth'))
     {
@@ -54,7 +54,7 @@
             }
 
             /**
-             * Get the phone of the connected user
+             * Return the phone of the connected user
              * @return string
              */
             public static function GetPhone()
@@ -65,7 +65,7 @@
             }
 
             /**
-             * Get the username of the connected user
+             * Return the username of the connected user
              * @return string
              */
             public static function GetUsername()
