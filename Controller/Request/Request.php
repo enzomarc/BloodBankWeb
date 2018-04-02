@@ -24,6 +24,8 @@
                 $msg = " Vous avez deja fait une demande et vous etes attendu a ".htmlspecialchars($info['hospital_name'])." Situé à  ".htmlspecialchars($info['hospital_city'])." Pour vos/Votre Poche(s) de sang ";
             }
         }
+
+        
         include_once('../../View/Request/Request.php');
 
 
