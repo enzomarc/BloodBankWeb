@@ -17,8 +17,10 @@
     </head>
     
     <body>
-        
-        <div class="content">
+
+    <?php require_once 'Controller/User/dashboard.php'; ?>
+
+    <div class="content">
             
             <div class="three columns" id="menu-container">
                     
@@ -27,7 +29,7 @@
                     <h5>Electronic Blood Bank</h5>
                     <hr>
 
-                    <img id="avatar" src="View/assets/images/pp/JimmieButler.jpg" alt="avatar">
+                    <img id="avatar" src="View/assets/images/pp/<?= $avatar; ?>" alt="avatar">
                     <h6><?= Auth::GetUsername(); ?></h6>
 
                     <div class="menu-items">

@@ -1,6 +1,7 @@
 <?php
 
-    require '../../Model/user.php';
+    define('ROOT', dirname(__DIR__) . '/../');
+    require '../../Model/User/user.php';
     require '../../Helpers/CryptoHelper.php';
 
     if (isset($_POST['nameuser']) and isset($_POST['password']) and isset($_POST['bloodgroup']) and isset($_POST['phone']))

@@ -22,6 +22,8 @@ div.container div#pic-section
 div.container div#pic-section img
 {
     border-radius: 100px;
+    height: 130px;
+    width: 130px;
 }
 
 div.container div#pic-section a

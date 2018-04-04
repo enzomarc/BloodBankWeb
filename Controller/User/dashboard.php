@@ -1,7 +1,7 @@
 <?php
 
     require_once ROOT . 'Controller/auth.php';
-    require_once ROOT . 'Model/user.php';
+    require_once ROOT . 'Model/User/user.php';
 
     if (Auth::Connected())
     {
@@ -13,4 +13,6 @@
         $birthdate = $current_user->GetBirthdate();
         $gender = $current_user->GetGender();
         $city = $current_user->GetCity();
+        $avatar = $current_user->GetAvatar();
+        $date = date('Y-m-d');
     }

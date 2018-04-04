@@ -1,6 +1,6 @@
 <?php
 
-    require dirname(__DIR__) . '/Model/database.php';
+    require_once ROOT . 'Model/database.php';
 
     class User
     {
@@ -12,6 +12,7 @@
         private $birthdate;
         private $gender;
         private $city;
+        private $avatar;
 
         public function __construct($username, $phone, $password, $bloodgroup)
         {
@@ -93,6 +94,16 @@
             $this->city = $value;
         }
 
+        public function GetAvatar()
+        {
+            return $this->avatar;
+        }
+
+        public function SetAvatar($value)
+        {
+            $this->avatar = $value;
+        }
+
         /* CRUD Operations */
 
         /**
@@ -117,6 +128,34 @@
         }
 
         /**
+         * Update fields of user available in the database
+         * @param $password bool Determine whether the function will update the password or not
+         * @param $newPhone string New phone to give to the current user
+         * @return bool
+         */
+        public function UpdateUser($setPassword, $newPhone)
+        {
+            if ($this->Exist())
+            {
+                $request = database::GetDB('bloodbankdb')->prepare($setPassword ? 'UPDATE users SET name = :name, phone = :nphone, password = :password, bloodgroup =:bloodgroup, birthdate = :birthdate, gender = :gender, city = :city, profile_img = :img WHERE phone = :phone' : 'UPDATE users SET name = :name, phone = :nphone, bloodgroup = :bloodgroup, birthdate = :birthdate, gender = :gender, city = :city, profile_img = :img WHERE phone = :phone');
+                $request->bindParam(':name', $this->username);
+                $request->bindParam(':phone', $this->phone);
+                $request->bindParam(':nphone', $newPhone);
+                $request->bindParam(':bloodgroup', $this->bloodgroup);
+                $request->bindParam(':birthdate', $this->birthdate);
+                $request->bindParam(':gender', $this->gender);
+                $request->bindParam(':city', $this->city);
+                $request->bindParam(':img', $this->avatar);
+                if ($setPassword) $request->bindParam(':password', Hash::Encrypt($this->password));
+
+                if ($request->execute())
+                    return true;
+            }
+
+            return false;
+        }
+
+        /**
          * Create new user with informations based on the phone number
          * @param string $phone Phone number of the user to get
          * @return User
@@ -136,6 +175,7 @@
                     $tempUser->birthdate = $result['birthdate'];
                     $tempUser->gender = $result['gender'];
                     $tempUser->city = $result['city'];
+                    $tempUser->avatar = $result['profile_img'];
                 }
                 return $tempUser;
             }

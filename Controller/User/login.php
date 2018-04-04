@@ -1,6 +1,7 @@
 <?php
 
-    require '../../Model/user.php';
+    define('ROOT', dirname(__DIR__) . '/../');
+    require '../../Model/User/user.php';
     require '../../Helpers/CryptoHelper.php';
     require '../auth.php';
 

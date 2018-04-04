@@ -1,6 +1,6 @@
 <?php
 
-    define('ROOT', dirname(__DIR__) . '/BloodBankWeb/');
+    define('ROOT', dirname(__DIR__) .  '/BloodBankWeb/');
     include_once ROOT . 'View/view.php';
     include_once ROOT . 'Controller/auth.php';
 
