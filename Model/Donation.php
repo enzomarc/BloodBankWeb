@@ -17,6 +17,7 @@ class Donation
     private $_idHospital;
     private $_status="pending";
 
+
     /**
      * @param $idUser
      * @param $idHospital
@@ -88,9 +89,53 @@ class Donation
         return $result = $query->fetchAll();
     }
 
-    public static function readDonationUser($phoneUser){
+    public static function getDonationMake($phoneUser){
         $query = database::GetDB('bloodbankdb')->prepare("SELECT * FROM donations WHERE phone = :phone");
         $query->execute([":phone"=>$phoneUser]);
         return $result = $query->fetchAll();
+    }
+
+    /*
+        @param mixed $idDonation 
+        @param mixed $idUser
+        @param mixed $idHospital
+        @param mixed $donationDate;
+        @param mixed $expirationDate
+        @param mixed $numberOfUnit
+        @param mixed $status
+    */
+
+    public static function updateDonation($idDonation,$idUser,$idHospital,$donationDate,$expirationDate,$numberOfUnit,$status)
+    {
+        $query = database::GetDB('bloodbankdb')->prepare("UPDATE donations SET id_donation = :id_donation, id_user = :id_user, ref_hospital = :ref_hospital, donation_date = :donation_date,  expiration_date = :expiration_date, unit = :unit, donation_status = :donation_status WHERE id_donation = :id_donation and id_user = :id_user");
+        $query->bindParam(":id_donation",$idDonation,PDO::PARAM_INT);
+        $query->bindParam(":id_user",$idUser,PDO::PARAM_INT);
+        $query->bindParam(":ref_hospital",$idHospital,PDO::PARAM_STR);
+        $query->bindParam(":donation_date",$donationDate,PDO::PARAM_STR);
+        $query->bindParam(":expiration_date",$expirationDate,PDO::PARAM_STR);
+        $query->bindParam(":unit",$numberOfUnit,PDO::PARAM_INT);
+        $query->bindParam(":donation_status",$status);
+        $query->execute();
+
+        if ($query) {
+            return true;
+        } 
+    }
+
+    /** 
+    *@param mixed $idDonation 
+    *@param mixed $idUser
+    *@return bool
+    */
+    public static function deleteDonation($idDonation,$idUser)
+    {
+        $query = database::GetDB('bloodbankdb')->prepare("DELETE FROM donations WHERE id_donation = :id_donation and id_user = :id_user");
+        $query->bindParam(":id_donation",$idDonation,PDO::PARAM_INT);
+        $query->bindParam(":id_user",$idUser,PDO::PARAM_INT); 
+        $query->execute();
+
+        if ($query) {
+            return true;
+        }
     }
 }

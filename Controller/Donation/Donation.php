@@ -4,7 +4,7 @@
  * Date: 3/31/2018
  * Time: 5:56 AM
  */
-
+define('ROOT', dirname(__DIR__));
 require '../../Model/Donation.php';
 require '../../Helpers/CryptoHelper.php';
 require '../auth.php';
@@ -18,7 +18,8 @@ if(Auth::Connected()){
         $hospitals[$key]['hospital_name'] = htmlspecialchars($hospital['hospital_name']);
     }
 
-    $donationmakes = Donation::readDonationUser(Auth::GetPhone());
+
+    $donationmakes = Donation::getDonationMake(Auth::GetPhone());
 
     foreach($donationmakes as $key => $donationmake){
         $donationmakes[$key]['id_donation'] = htmlspecialchars($donationmake['id_donation']);
@@ -41,6 +42,24 @@ if(Auth::Connected()){
         $msg = " l'hopital ".$info['hospital_name']." Situé à  ".$info['hospital_city']." Vous attend pour le don de sang ";
         
     }
+
+
+    if (isset($_POST['confirmDelete']) and isset($_POST['id_donation']) and $_POST['confirmDelete']=="yes") {
+        if (Donation::deleteDonation($_POST['id_donation'],Auth::GetPhone())) {
+            echo "Vous Avez bien Supprimer";
+        }
+    }
+
+
+    if (isset($_POST['statement']) && $_POST['statement']=="update") {
+        if (Donation::updateDonation()) {
+        
+        }
+    }
+
+
+
+
     include_once('../../View/Donation/donation.php');
 
 
