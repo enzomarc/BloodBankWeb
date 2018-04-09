@@ -114,11 +114,15 @@
         {
             if (!$this->Exist())
             {
-                $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO users (name, phone, password, bloodgroup) VALUES (:name, :phone, :pwd, :bg)');
+                $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO users (name, phone, password, bloodgroup, birthdate, gender, city, profile_image) VALUES (:name, :phone, :pwd, :bg, :bd, :gender, :city, :avatar)');
                 $request->bindParam(':name', $this->username);
                 $request->bindParam(':phone', $this->phone);
                 $request->bindParam(':pwd', $this->password);
                 $request->bindParam(':bg', $this->bloodgroup);
+                $request->bindParam(':bd', $this->birthdate);
+                $request->bindParam(':gender', $this->gender);
+                $request->bindParam(':city', $this->city);
+                $request->bindParam(':avatar', $this->avatar);
 
                 if ($request->execute())
                     return true;

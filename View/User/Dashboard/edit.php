@@ -95,14 +95,12 @@
                     <p>All fields marked with * are required</p>
                     <div class="button-div">
                         <a class="button" id="edit-button" href="#">SAVE</a>
-                    </div
+                    </div>
                 </div>
             </div>
 
         </div>
 
     </form>
-
-    </div>
 
 </div>

@@ -1,7 +1,5 @@
 <?php
 
-    require dirname(__DIR__) . '/Model/database.php';
-
     class HospitalRequest
     {
 

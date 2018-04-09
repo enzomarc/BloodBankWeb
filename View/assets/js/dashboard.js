@@ -17,9 +17,7 @@ $(function () {
 
     $(window).resize(function() {
 
-        $width = $(window).width();
-
-        if ($width < 768)
+        if ($(window).width() < 768)
         {
             $('#menu-container').css('position', 'static');
             $('#menu-container').children().css('text-align', 'center');
@@ -39,12 +37,13 @@ $(function () {
 
     //#region Changing selected values
 
-    var bloodgroup = '#' + $('select#bloodgroup').attr('value');
-    var city = '#' + $('select#city').attr('value');
-    var gender = '#' + $('select#gender').attr('value');
-    $('select#bloodgroup').children(bloodgroup).prop('selected', true);
-    $('select#city').children(city).prop('selected', true);
-    $('select#gender').children(gender).prop('selected', true);
+    var bloodgroup = document.getElementById($('select#bloodgroup').attr('value'));
+    var city = document.getElementById($('select#city').attr('value'));
+    var gender = document.getElementById($('select#gender').attr('value'));
+
+    bloodgroup.selected = true;
+    city.selected = true;
+    gender.selected = true;
 
     //#endregion
 
@@ -55,7 +54,7 @@ $(function () {
 
     // Load file upload dialog on link click
     $("#upload-btn").click(function () {
-        $("#img-file"").click();
+        $('#img-file').click();
     });
 
     $("#img-file").change(function () {
