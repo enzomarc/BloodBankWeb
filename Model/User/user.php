@@ -114,7 +114,7 @@
         {
             if (!$this->Exist())
             {
-                $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO users (name, phone, password, bloodgroup, birthdate, gender, city, profile_image) VALUES (:name, :phone, :pwd, :bg, :bd, :gender, :city, :avatar)');
+                $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO users (name, phone, password, bloodgroup, birthdate, gender, city, profile_img) VALUES (:name, :phone, :pwd, :bg, :bd, :gender, :city, :avatar)');
                 $request->bindParam(':name', $this->username);
                 $request->bindParam(':phone', $this->phone);
                 $request->bindParam(':pwd', $this->password);
@@ -216,6 +216,21 @@
             $request->execute();
             $results = $request->fetchAll();
             return count($results) > 0;
+        }
+
+        /**
+         * Return the id of the user with specified phone
+         * @param string $phone Phone number of the user to get ID
+         * @return int
+         */
+        public static function GetID($phone)
+        {
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT id_user FROM users WHERE phone = :phone');
+            $request->bindParam(':phone', $phone);
+            $request->execute();
+            $results = $request->fetch();
+            
+            return $results[0];
         }
 
     }

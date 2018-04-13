@@ -12,7 +12,7 @@ $(function () {
     {
         $('#menu-container').css('position', 'fixed');
         $('#main-container').css('float', 'right');
-        $('#main-container').css('width', 'calc(100% - 22%)')
+        $('#main-container').css('width', 'calc(100% - 22%)');
     }
 
     $(window).resize(function() {
@@ -22,13 +22,13 @@ $(function () {
             $('#menu-container').css('position', 'static');
             $('#menu-container').children().css('text-align', 'center');
             $('#main-container').css('width', '100%');
-            $('#main-container').css('float', 'none')
+            $('#main-container').css('float', 'none');
         }
         else
         {
             $('#menu-container').css('position', 'fixed');
             $('#main-container').css('float', 'right');
-            $('#main-container').css('width', 'calc(100% - 22%)')
+            $('#main-container').css('width', 'calc(100% - 22%)');
         }
 
     });
@@ -41,9 +41,9 @@ $(function () {
     var city = document.getElementById($('select#city').attr('value'));
     var gender = document.getElementById($('select#gender').attr('value'));
 
-    bloodgroup.selected = true;
-    city.selected = true;
-    gender.selected = true;
+    if (bloodgroup != null) bloodgroup.selected = true;
+    if (city != null) city.selected = true;
+    if (gender != null) gender.selected = true;
 
     //#endregion
 
@@ -58,9 +58,40 @@ $(function () {
     });
 
     $("#img-file").change(function () {
-        console.log('Changed');
         var files = $('#img-file').prop('files');
         $('#oavatar').attr('src', window.URL.createObjectURL(files[0]));
-    })
+    });
+
+    //#region Donation Section
+
+    $('a.donate-btn').click(function () {
+        var hospital = $(this).prop('id');
+        var unit = $('input#unit').val();
+        $.ajax({
+            url: "Controller/Donation/AddDonation.php",
+            method: "POST",
+            data: "hospital=" + hospital + "&unit=" + unit,
+            success: function(data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                {
+                    console.log(data);
+                    alert(data);
+                }
+            },
+            error: function(data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                {
+                    console.log(data);
+                    alert(data);
+                }
+            }
+        });
+    });
+
+    //#endregion
 
 });

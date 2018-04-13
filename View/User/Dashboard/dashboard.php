@@ -9,34 +9,35 @@
                 </div>
             </div><hr>
         </div>
-        <div class="seven columns"></div>
     </div>
 
-    <div class="row">
+    <div class="row" id="dashboard-items">
 
        <div class="four columns">
-           <div class="dashboard-item" id="item1">
-               <div class="row">
-                <img src="View/assets/images/dash_icons/donation.png" alt="kalel">
+           <a href="index.php?p=dashboard&v=donations">
+                <div class="dashboard-item" id="donation-item">
+                    <img src="View/assets/images/dash_icons/donation.png" alt="kalel">
+                    <h5 class="item-title">Donations</h5>
                 </div>
-                <div class="row">
-                <h5 class="item-title">Donations</h5>
-                </div>
-            </div>
+            </a>
        </div>
 
        <div class="four columns">
-           <div class="dashboard-item" id="item2">
-                <img src="View/assets/images/dash_icons/request.png" alt="kalel">
-                <h5 class="item-title">Requests</h5>
-            </div>
+           <a href="index.php?p=dashboard&v=requests">
+                <div class="dashboard-item" id="request-item">
+                    <img src="View/assets/images/dash_icons/request.png" alt="kalel">
+                    <h5 class="item-title">Requests</h5>
+                </div>
+            </a>
        </div>
 
        <div class="four columns">
-           <div class="dashboard-item" id="item3">
-                <img src="View/assets/images/dash_icons/info.png" alt="kalel">
-                <h5 class="item-title">Informations</h5>
-            </div>
+           <a href="index.php?p=dashboard&v=informations">
+                <div class="dashboard-item" id="info-item">
+                    <img src="View/assets/images/dash_icons/info.png" alt="kalel">
+                    <h5 class="item-title">Informations</h5>
+                </div>
+            </a>
        </div>
 
     </div>

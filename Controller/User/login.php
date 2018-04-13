@@ -18,9 +18,9 @@
             die('Username or password is incorrect.');
         }
     }
-    else if (isset($_GET['phone']) && isset($_GET['password']))
+    else if (isset($_GET['phone']) && isset($_GET['token']))
     {
-        if (user::IsValid($_GET['phone'], Hash::Encrypt($_GET['password'])))
+        if (user::IsValid($_GET['phone'], $_GET['token']))
         {
             $username = User::GetByPhone($_GET['phone'])->GetUsername();
             Auth::Create($username, $_GET['phone']);

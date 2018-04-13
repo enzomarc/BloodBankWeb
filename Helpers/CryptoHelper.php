@@ -4,7 +4,7 @@
     {
 
         /**
-         * Return an encrypted string based on the string given in the parameters
+         * Return an encrypted string version of the string given in the parameters
          * @param string $str String to encrypt
          * @param string $algo Encryption algorithm to use
          * @return string

@@ -140,6 +140,11 @@ i#notif-msg:hover
     transition: all 0.3s;
 }
 
+div#dashboard-items a
+{
+    text-decoration: none;
+}
+
 div.dashboard-item
 {
     color: white;
@@ -151,17 +156,17 @@ div.dashboard-item
     box-shadow: -1px 1px 5px #999;
 }
 
-div.dashboard-item#item1
+div.dashboard-item#donation-item
 {
     background: linear-gradient(to top right, #81003E, #BD003E);
 }
 
-div.dashboard-item#item2
+div.dashboard-item#request-item
 {
     background: linear-gradient(to top right, #008E2A, #4AC764);
 }
 
-div.dashboard-item#item3
+div.dashboard-item#info-item
 {
     background: linear-gradient(to top right, #0067C1, #008EFF);
 }
@@ -184,4 +189,9 @@ div.dashboard-item h5
 div#request-row
 {
     margin-top: 10%;
+}
+
+div#select-title
+{
+    margin-top: 4%;
 }
