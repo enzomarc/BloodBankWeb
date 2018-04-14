@@ -44,7 +44,13 @@
                 <tr>
                     <td><?= htmlentities($hospital['hospital_name']); ?></td>
                     <td><?= htmlentities($hospital['hospital_city']); ?></td>
+                    <?php 
+                    if (isset($type))
+                        if ($type == 'donations') { ?>
                     <td><a class="donate-btn" id="<?= $hospital['ref_hospital']; ?>" href="#">Donate</a></td>
+                        <?php } else if ($type == 'requests') { ?>
+                    <td><a class="request-btn" id="<?= $hospital['ref_hospital']; ?>" href="#">Request</a></td>
+                        <?php } ?>
                 </tr>
             <?php
         }

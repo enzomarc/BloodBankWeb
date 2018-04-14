@@ -86,6 +86,28 @@ $(function () {
         });
     });
 
+    $('a.request-btn').click(function () {
+        var hospital = $(this).prop('id');
+        var unit = $('input#unit').val();
+        $.ajax({
+            url: "Controller/Request/AddRequest.php",
+            method: "POST",
+            data: "hospital=" + hospital + "&unit=" + unit,
+            success: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=requests');
+                else
+                    alert(data);
+            },
+            error: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=requests');
+                else
+                    alert(data);
+            }
+        });
+    });
+
     $('a.cancel-btn').click(function () {
         var donation_id = $(this).prop('id');
         $.ajax({
@@ -101,6 +123,27 @@ $(function () {
             error: function(data) {
                 if (data === "Success")
                     location.replace('index.php?p=dashboard&v=donations');
+                else
+                    alert(data);
+            }
+        })
+    });
+
+    $('a.req-cancel-btn').click(function () {
+        var request_id = $(this).prop('id');
+        $.ajax({
+            url: "Controller/Request/DeleteRequest.php",
+            method: "POST",
+            data: "id=" + request_id,
+            success: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=requests');
+                else
+                    alert(data);
+            },
+            error: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=requests');
                 else
                     alert(data);
             }

@@ -5,7 +5,7 @@
             <div class="content">
                 <h4>Requests</h4>
                 <div id="notif-zone">
-                    <a href=""><i class="now-ui-icons ui-1_email-85" id="notif-msg"></i></a>
+                    <a class="button" href="index.php?p=dashboard&v=add-request">Add Request</a>
                 </div>
             </div><hr>
         </div>
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php require_once 'Controller/hospital_request.php'; ?>
+                <?php require_once 'Controller/Request/GetRequests.php'; ?>
             </tbody>
         </table>
 

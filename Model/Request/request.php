@@ -4,25 +4,25 @@
     require_once ROOT . 'Model/User/user.php';
 
     /**
-     * Provides set of function to manage donations via the database
+     * Provides set of function to manage requests via the database
      */
-    Class Donation
+    Class Request
     {
         
         private $user;
         private $hospital;
         private $date;
-        private $expiration_date;
+        private $completed_date;
         private $unit;
         private $status;
 
         /**
-         * New instance of donation class
-         * @param string $user Phone number of the user who makes donation
-         * @param string $hospital Hospital where the donation is made
-         * @param $date Day when the donation is made
+         * New instance of request class
+         * @param string $user Phone number of the user who makes request
+         * @param string $hospital Hospital where the request is made
+         * @param $date Day when the request is made
          * @param int $unit Number of blood unit to donate
-         * @return Donation
+         * @return Request
          */
         public function __construct($user, $hospital, $date, $unit)
         {
@@ -70,14 +70,14 @@
             $this->date = $value;
         }
 
-        public function GetExpiration()
+        public function GetCompleted()
         {
-            return $this->expiration_date;
+            return $this->completed_date;
         }
 
-        public function SetExpiration($value)
+        public function SetCompleted($value)
         {
-            $this->expiration_date = $value;
+            $this->completed_date = $value;
         }
 
         public function GetUnits()
@@ -103,14 +103,14 @@
         /* CRUD Operations */
 
         /**
-         * Return an array containing all the donations maded by a specified user
-         * @param string $user Phone number of the user to gives donation of
+         * Return an array containing all the requests maded by a specified user
+         * @param string $user Phone number of the user to gives requests of
          * @return array
          */
-        public static function GetDonations($user)
+        public static function GetRequests($user)
         {
             $id = User::GetID($user);
-            $request = database::GetDB('bloodbankdb')->prepare('SELECT hospitals.hospital_name, donations.id_donation, donations.donation_date, donations.expiration_date, donations.unit, donations.donation_status FROM donations, hospitals WHERE id_user = :id AND hospitals.ref_hospital = donations.ref_hospital');
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT hospitals.hospital_name, requests.id_request, requests.request_date, requests.received_date, requests.unit, requests.request_status FROM requests, hospitals WHERE id_user = :id AND hospitals.ref_hospital = requests.ref_hospital');
             $request->bindParam(':id', $id);
             $request->execute();
             $results = $request->fetchAll();
@@ -119,17 +119,16 @@
         }
 
         /**
-         * Add the current donation object to the database
+         * Add the current request object to the database
          * @return string
          */
-        public function MakeDonation()
+        public function MakeRequest()
         {
             $id = User::GetID($this->user);
-            $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO donations (id_user, ref_hospital, donation_date, expiration_date, unit, donation_status) VALUES (:user, :hosp, :date, :exp, :unit, :status)');
+            $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO requests (id_user, ref_hospital, request_date, unit, request_status) VALUES (:user, :hosp, :date, :unit, :status)');
             $request->bindParam(':user', $id);
             $request->bindParam(':hosp', $this->hospital);
             $request->bindParam(':date', $this->date);
-            $request->bindParam(':exp', $this->expiration_date);
             $request->bindParam(':unit', $this->unit);
             $request->bindParam(':status', $this->status);
 
@@ -137,26 +136,26 @@
         }
 
         /**
-         * Delete donation with given id
-         * @param string $id ID of the donation to delete
+         * Delete request with given id
+         * @param string $id ID of the request to delete
          * @return bool
          */
-        public static function DeleteDonation($id)
+        public static function DeleteRequest($id)
         {
-            $request = database::GetDB('bloodbankdb')->prepare('DELETE FROM donations WHERE id_donation = :id');
+            $request = database::GetDB('bloodbankdb')->prepare('DELETE FROM requests WHERE id_request = :id');
             $request->bindParam(':id', $id);
 
             return $request->execute();
         }
 
         /**
-         * Determine whether user with given id has waiting donation
+         * Determine whether user with given id has waiting request
          * @param string $id ID of user to check
          * @return bool
          */
         public static function Waiting($id)
         {
-            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM donations WHERE id_user = :id AND donation_status != "completed"');
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM requests WHERE id_user = :id AND request_status != "completed"');
             $request->bindParam(':id', $id);
             $request->execute();
             $results = $request->fetchAll();
@@ -165,13 +164,13 @@
         }
 
         /**
-         * Determine whether donation with given id exist
-         * @param string $id ID of the donation to check
+         * Determine whether request with given id exist
+         * @param string $id ID of the request to check
          * @return bool
          */
         public static function Exist($id)
         {
-            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM donations WHERE id_donation = :id');
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM requests WHERE id_request = :id');
             $request->bindParam(':id', $id);
             $request->execute();
             $results = $request->fetchAll();
