@@ -3,7 +3,10 @@
     <div class="row" id="dash-header">
         <div class="u-full-width">
             <div class="content">
-                <h4>Donations - Add</h4>
+                <h4 class="u-full-width">Donations - Add</h4>
+                <div id="notif-zone">
+                    <a class="button" href="index.php?p=dashboard&v=donations">Donations List</a>
+                </div>
             </div><hr>
         </div>
     </div>

@@ -109,8 +109,9 @@
          */
         public static function GetDonations($user)
         {
-            $request = database::GetDB('bloodbankdb')->prepare('SELECT hospitals.hospital_name, donation_date, expiration_date, unit, donation_status FROM hospitals, donations WHERE users.phone = :phone AND donations.id_user = users.user_id AND donations.ref_hospital = hospitals.ref_hospital');
-            $request->bindParam(':phone', $user);
+            $id = User::GetID($user);
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT hospitals.hospital_name, donations.id_donation, donations.donation_date, donations.expiration_date, donations.unit, donations.donation_status FROM donations, hospitals WHERE id_user = :id AND hospitals.ref_hospital = donations.ref_hospital');
+            $request->bindParam(':id', $id);
             $request->execute();
             $results = $request->fetchAll();
             
@@ -136,13 +137,41 @@
         }
 
         /**
-         * Determine whether user with given id has pending donation
+         * Delete donation with given id
+         * @param string $id ID of the donation to delete
+         * @return bool
+         */
+        public static function DeleteDonation($id)
+        {
+            $request = database::GetDB('bloodbankdb')->prepare('DELETE FROM donations WHERE id_donation = :id');
+            $request->bindParam(':id', $id);
+
+            return $request->execute();
+        }
+
+        /**
+         * Determine whether user with given id has waiting donation
          * @param string $id ID of user to check
+         * @return bool
+         */
+        public static function Waiting($id)
+        {
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM donations WHERE id_user = :id AND donation_status != "completed"');
+            $request->bindParam(':id', $id);
+            $request->execute();
+            $results = $request->fetchAll();
+
+            return count($results) > 0;
+        }
+
+        /**
+         * Determine whether donation with given id exist
+         * @param string $id ID of the donation to check
          * @return bool
          */
         public static function Exist($id)
         {
-            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM donations WHERE id_user = :id AND donation_status = "pending"');
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT * FROM donations WHERE id_donation = :id AND donation_status != "completed"');
             $request->bindParam(':id', $id);
             $request->execute();
             $results = $request->fetchAll();

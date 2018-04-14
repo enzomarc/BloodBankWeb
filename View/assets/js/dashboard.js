@@ -75,21 +75,36 @@ $(function () {
                 if (data === "Success")
                     location.replace('index.php?p=dashboard&v=donations');
                 else
-                {
-                    console.log(data);
                     alert(data);
-                }
             },
             error: function(data) {
                 if (data === "Success")
                     location.replace('index.php?p=dashboard&v=donations');
                 else
-                {
-                    console.log(data);
                     alert(data);
-                }
             }
         });
+    });
+
+    $('a.cancel-btn').click(function () {
+        var donation_id = $(this).prop('id');
+        $.ajax({
+            url: "Controller/Donation/DeleteDonation.php",
+            method: "POST",
+            data: "id=" + donation_id,
+            success: function(data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                    alert(data);
+            },
+            error: function(data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                    alert(data);
+            }
+        })
     });
 
     //#endregion
