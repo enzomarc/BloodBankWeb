@@ -1,5 +1,7 @@
 <?php
 
+    require_once ROOT . 'Model/User/user.php';
+
     /**
      * User authentication and session manager
      */
@@ -72,6 +74,19 @@
             {
                 if (self::Connected())
                     return $_SESSION['username'];
+                return null;
+            }
+
+            /**
+             * Return the bloodgroup of the connected user
+             * @return string
+             */
+            public static function GetBloodGroup()
+            {
+                if (self::Connected())
+                {
+                    return User::GetByPhone(self::GetPhone())->GetBloodGroup();
+                }
                 return null;
             }
         }

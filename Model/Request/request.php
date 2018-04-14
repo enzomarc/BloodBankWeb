@@ -21,15 +21,13 @@
          * @param string $user Phone number of the user who makes request
          * @param string $hospital Hospital where the request is made
          * @param $date Day when the request is made
-         * @param int $unit Number of blood unit to donate
          * @return Request
          */
-        public function __construct($user, $hospital, $date, $unit)
+        public function __construct($user, $hospital, $date)
         {
             $this->user = $user;
             $this->hospital = $hospital;
             $this->date = $date;
-            $this->unit = $unit;
         }
 
         /* Getters & Setters */
@@ -125,11 +123,10 @@
         public function MakeRequest()
         {
             $id = User::GetID($this->user);
-            $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO requests (id_user, ref_hospital, request_date, unit, request_status) VALUES (:user, :hosp, :date, :unit, :status)');
+            $request = database::GetDB('bloodbankdb')->prepare('INSERT INTO requests (id_user, ref_hospital, request_date, request_status) VALUES (:user, :hosp, :date, :status)');
             $request->bindParam(':user', $id);
             $request->bindParam(':hosp', $this->hospital);
             $request->bindParam(':date', $this->date);
-            $request->bindParam(':unit', $this->unit);
             $request->bindParam(':status', $this->status);
 
             return $request->execute();

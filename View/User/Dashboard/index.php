@@ -35,9 +35,9 @@
                 <div class="menu-items">
                     <div class="container">
                         <div class="row"><a class="button button-primary u-full-width" href="index.php?p=dashboard"><i class="now-ui-icons business_chart-bar-32">&nbsp;&nbsp;</i>Dashboard</a></div>
-                        <div class="row"><a class="button u-full-width" href="index.php?p=dashboard&v=edit"><i class="now-ui-icons users_single-02">&nbsp;&nbsp;</i>User Profile</a></div>
                         <div class="row"><a class="button u-full-width" href="index.php?p=dashboard&v=notification"><i class="now-ui-icons ui-1_bell-53">&nbsp;&nbsp;</i>Notifications</a></div>
                         <div class="row"><a class="button u-full-width" href="index.php?p=dashboard&v=result"><i class="now-ui-icons files_paper">&nbsp;&nbsp;</i>Test Results</a></div>
+                        <div class="row"><a class="button u-full-width" href="index.php?p=dashboard&v=edit"><i class="now-ui-icons users_single-02">&nbsp;&nbsp;</i>User Profile</a></div>
                         <div class="row"><a class="button u-full-width" href="index.php?p=logout"><i class="now-ui-icons travel_info">&nbsp;&nbsp;</i>Logout</a></div>
                     </div>
                 </div>

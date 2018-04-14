@@ -5,7 +5,7 @@
             <div class="content">
                 <h4>Requests</h4>
                 <div id="notif-zone">
-                    <a class="button" href="index.php?p=dashboard&v=add-request">Add Request</a>
+                    <a class="button" href="index.php?p=dashboard&v=add-request">Need Blood</a>
                 </div>
             </div><hr>
         </div>

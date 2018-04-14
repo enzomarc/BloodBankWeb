@@ -62,7 +62,7 @@ $(function () {
         $('#oavatar').attr('src', window.URL.createObjectURL(files[0]));
     });
 
-    //#region Donation Section
+    //#region Donation & Request Section
 
     $('a.donate-btn').click(function () {
         var hospital = $(this).prop('id');
@@ -87,25 +87,7 @@ $(function () {
     });
 
     $('a.request-btn').click(function () {
-        var hospital = $(this).prop('id');
-        var unit = $('input#unit').val();
-        $.ajax({
-            url: "Controller/Request/AddRequest.php",
-            method: "POST",
-            data: "hospital=" + hospital + "&unit=" + unit,
-            success: function (data) {
-                if (data === "Success")
-                    location.replace('index.php?p=dashboard&v=requests');
-                else
-                    alert(data);
-            },
-            error: function (data) {
-                if (data === "Success")
-                    location.replace('index.php?p=dashboard&v=requests');
-                else
-                    alert(data);
-            }
-        });
+        console.log('Olivia Pope');
     });
 
     $('a.cancel-btn').click(function () {
@@ -126,7 +108,7 @@ $(function () {
                 else
                     alert(data);
             }
-        })
+        });
     });
 
     $('a.req-cancel-btn').click(function () {
@@ -147,7 +129,28 @@ $(function () {
                 else
                     alert(data);
             }
-        })
+        });
+    });
+
+    $('a#search-request-btn').click(function () {
+        $('#searching-label').fadeIn(200);
+        var unit = $('input#unit').val();
+        var bloodgroup = $('span.user-bg').prop('id').toUpperCase();
+        $('tbody').empty();
+        $.ajax({
+            url: "Controller/Hospital/RequestHospital.php",
+            method: "POST",
+            data: "amount=" + unit + "&bloodgroup=" + bloodgroup,
+            success: function (data) {
+                $('tbody').append(data);
+            },
+            error: function (data) {
+                $('tbody').append(data);
+            }
+        });
+        $('#select-title').fadeIn(200);
+        $('#result-table').fadeIn(200);
+        $('#searching-label').fadeOut(200);
     });
 
     //#endregion
