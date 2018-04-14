@@ -86,10 +86,6 @@ $(function () {
         });
     });
 
-    $('a.request-btn').click(function () {
-        console.log('Olivia Pope');
-    });
-
     $('a.cancel-btn').click(function () {
         var donation_id = $(this).prop('id');
         $.ajax({
@@ -151,6 +147,28 @@ $(function () {
         $('#select-title').fadeIn(200);
         $('#result-table').fadeIn(200);
         $('#searching-label').fadeOut(200);
+    });
+
+    $('a.hospital-donate-btn').click(function () {
+        var unit = $(this).parent().parent().children('.unit-td').children()[0].value;
+        var request_id = $(this).parent().parent().prop('id');
+        $.ajax({
+            url: "Controller/Donation/AddDonation.php",
+            method: "POST",
+            data: "id=" + request_id + "&unit=" + unit,
+            success: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                    alert(data);
+            },
+            error: function (data) {
+                if (data === "Success")
+                    location.replace('index.php?p=dashboard&v=donations');
+                else
+                    alert(data);
+            }
+        });
     });
 
     //#endregion

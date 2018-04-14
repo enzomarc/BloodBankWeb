@@ -16,7 +16,7 @@
             <label for="unit">What amount of blood do you want to donate (in bottle) : </label>
         </div>
         <div class="five columns">
-            <input type="number" id="unit" name="unit" min="1" value="1" max="5">
+            <input type="number" id="unit" name="unit" min="1" value="1">
         </div>
     </div>
 

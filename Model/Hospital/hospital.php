@@ -32,4 +32,19 @@
             return $results;
         }
 
+        /**
+         * Return the reference of the hospital with the specified request id
+         * @param string $id ID of the request to return hospital reference
+         * @return string
+         */
+        public static function GetHospitalByRequestId($id)
+        {
+            $request = database::GetDB('bloodbankdb')->prepare('SELECT ref_hospital FROM hospital_request WHERE id = :id');
+            $request->bindParam(':id', $id);
+            $request->execute();
+            $results = $request->fetch();
+            
+            return $results[0];
+        }
+
     }

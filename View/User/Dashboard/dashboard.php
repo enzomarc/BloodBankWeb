@@ -57,11 +57,12 @@
                     <th>Date</th>
                     <th>Hospital</th>
                     <th>Blood Group</th>
+                    <th>Units</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php require_once 'Controller/hospital_request.php'; ?>
+                <?php require_once 'Controller/Hospital/HospitalRequest.php'; ?>
             </tbody>
         </table>
 
