@@ -18,20 +18,7 @@
             die('Username or password is incorrect.');
         }
     }
-    else if (isset($_GET['phone']) && isset($_GET['token']))
-    {
-        if (user::IsValid($_GET['phone'], $_GET['token']))
-        {
-            $username = User::GetByPhone($_GET['phone'])->GetUsername();
-            Auth::Create($username, $_GET['phone']);
-            header('location: ../../index.php?p=dashboard');
-        }
-        else
-        {
-            die('Username or password is incorrect.');
-        }
-    }
     else
     {
-        die('Incorrect credentials');
+        die('No credentials given.');
     }

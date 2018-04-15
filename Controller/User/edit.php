@@ -3,9 +3,8 @@
     define('ROOT', dirname(__DIR__) . '/../');
 
     require '../auth.php';
-    require '../../Model/User/user.php';
+    require_once '../../Model/User/user.php';
     require '../../Helpers/CryptoHelper.php';
-    require '../../Helpers/UploadHelpers.php';
 
     class Edit
     {
@@ -37,8 +36,6 @@
         }
 
     }
-
-    // var_dump(Edit::CheckFields($_POST, ['birthdate', 'prev-password', 'new-password', 'retyped-password', 'img-file']));
 
     if (Auth::Connected() && !Edit::CheckFields($_POST, ['birthdate', 'prev-password', 'new-password', 'retyped-password', 'img-file']))
     {
