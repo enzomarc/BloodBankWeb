@@ -49,6 +49,7 @@
                 <div class="six columns">
                     <select class="u-full-width" id="bloodgroup" name="bloodgroup" value="<?= $bloodgroup; ?>">
                         <option id="empty" value="">Blood Group *</option>
+                        <option id="unknow" value="unknow">Unknown Bloodgroup</option>
                         <option id="ap" value="ap">Group A+</option>
                         <option id="am" value="am">Group A-</option>
                         <option id="bp" value="bp">Group B+</option>

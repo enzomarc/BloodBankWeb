@@ -5,7 +5,7 @@
             <div class="content">
                 <h4>Dashboard</h4>
                 <div id="notif-zone">
-                    <a href=""><i class="now-ui-icons ui-1_email-85" id="notif-msg"></i></a>
+                    <a href="index.php?p=dashboard&v=notification"><i class="now-ui-icons ui-1_email-85" id="notif-msg"></i></a>
                 </div>
             </div><hr>
         </div>

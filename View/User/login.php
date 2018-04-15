@@ -41,6 +41,7 @@
                     <label id="group-label" for="bloodgroup" style="display:none">BLOOD GROUP</label><br>
                     <select name="bloodgroup" id="bloodgroup" style="display:none">
                         <option value="">Choose blood group ...</option>
+                        <option value="unknow">Unknown Bloodgroup</option>
                         <option value="ap">Group A+</option>
                         <option value="am">Group A-</option>
                         <option value="bp">Group B+</option>
