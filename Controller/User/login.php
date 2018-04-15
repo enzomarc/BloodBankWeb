@@ -11,7 +11,7 @@
         {
             $username = User::GetByPhone($_POST['phone'])->GetUsername();
             Auth::Create($username, $_POST['phone']);
-            header('location: ../../index.php?p=dashboard');
+            header('location: ../../index.php?p=dashboard&v=dashboard');
         }
         else
         {
