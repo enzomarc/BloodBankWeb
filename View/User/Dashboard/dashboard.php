@@ -35,7 +35,7 @@
            <a href="index.php?p=dashboard&v=informations">
                 <div class="dashboard-item" id="info-item">
                     <img src="View/assets/images/dash_icons/info.png" alt="kalel">
-                    <h5 class="item-title">Informations</h5>
+                    <h5 class="item-title">How to use</h5>
                 </div>
             </a>
        </div>

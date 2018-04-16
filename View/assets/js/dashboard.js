@@ -38,10 +38,12 @@ $(function () {
     //#region Changing selected values
 
     var bloodgroup = document.getElementById($('select#bloodgroup').attr('value'));
+    var req_bloodgroup = document.getElementById($('select#req-bloodgroup').attr('value'));
     var city = document.getElementById($('select#city').attr('value'));
     var gender = document.getElementById($('select#gender').attr('value'));
 
     if (bloodgroup != null) bloodgroup.selected = true;
+    if (req_bloodgroup != null) req_bloodgroup.selected = true;
     if (city != null) city.selected = true;
     if (gender != null) gender.selected = true;
 
@@ -131,7 +133,7 @@ $(function () {
     $('a#search-request-btn').click(function () {
         $('#searching-label').fadeIn(200);
         var unit = $('input#unit').val();
-        var bloodgroup = $('span.user-bg').prop('id').toUpperCase();
+        var bloodgroup = $('select#req-bloodgroup').val();
         $('tbody').empty();
         $.ajax({
             url: "Controller/Hospital/RequestHospital.php",

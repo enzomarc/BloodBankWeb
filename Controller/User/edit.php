@@ -75,7 +75,7 @@
                 if ($user->UpdateUser(true, $_POST['phone'])) {
                     Auth::Close();
                     Auth::Create($_POST['username'], $_POST['phone']);
-                    header('Location: ../../index.php?p=dashboard');
+                    header('Location: ../../index.php?p=dashboard&v=dashboard');
                 }
                 else
                     die("Error during update. Check all the fields before save.");
@@ -120,7 +120,7 @@
             if ($user->UpdateUser(false, $_POST['phone'])) {
                 Auth::Close();
                 Auth::Create($_POST['username'], $_POST['phone']);
-                header('Location: ../../index.php?p=dashboard');
+                header('Location: ../../index.php?p=dashboard&v=dashboard');
             }
             else
                 die("Error during update. Check all the fields before update.");
